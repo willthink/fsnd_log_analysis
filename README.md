@@ -4,12 +4,12 @@
 This project is for Udacity Full Stack Web Developer Nanodegree Log Analysis Project.  
 ##  Instruction to Run 
 ### Prepare Environment 
-```
+
 1. Install Vagrant virtual machine 
-2. Download data
-3. Import data 
+2. Download newsdata.sql from [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+3. Import data by execute below command in virtual machine:
+```
    psql -d news -f newsdata.sql
-   
 ```
 
 ### Create Views 
@@ -52,13 +52,41 @@ create view error_view as
 ```
 python log_analysis.py 1
 ```
+This will show the top three most viewed article from database 
+with article title and number of views 
+
+Sample output 
+```
+Candidate is jerk, alleges rival -- 338647
+Bears love berries, alleges bear -- 253801
+Bad things gone, say good people -- 170098
+```
 
 ### 2. Who are the most popular article authors of all time?
+
 ```
 python log_analysis.py 2
 ```
+This will list all the authors in the database with number of 
+views for their articles, and order by views in desc 
+
+Sample output
+```
+Ursula La Multa -- 507594
+Rudolf von Treppenwitz -- 423457
+Anonymous Contributor -- 170098
+Markoff Chaney -- 84557
+```
+
 
 ### 3. On which days did more than 1% of requests lead to errors? 
 ```
 python log_analysis.py 3
+
+This will list all the days which has more than 1% request errors 
+
+```
+Sample output 
+```
+Jul 17, 2016 -- 2.26% errors
 ```
